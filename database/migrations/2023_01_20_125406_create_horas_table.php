@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('horas', function (Blueprint $table) {
-            $table->date('diaH');
-            $table->time('horaH');
+            $table->string('diaH');
+            $table->string('horaH');
             $table->string('codAs');
 
             $table->foreign("codAs")

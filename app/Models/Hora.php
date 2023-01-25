@@ -12,4 +12,10 @@ class Hora extends Model
     protected $table = "horas";
     protected $primaryKey = ['codAs', 'diaH', 'horaH'];
     protected $fillable = ['codAs', 'diaH', 'horaH'];
+    public $incrementing = false;
+
+    public function obtenerHoras()
+    {
+        return Hora::all();
+    }
 }
