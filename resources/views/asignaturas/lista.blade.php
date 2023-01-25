@@ -5,10 +5,6 @@
         </h2>
     </x-slot>
     <style>
-        body {
-        margin: auto;
-        padding: 50px;
-        }
         table, td, th {
         border: 1px solid black;
         }

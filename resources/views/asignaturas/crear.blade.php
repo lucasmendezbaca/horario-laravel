@@ -1,14 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Asignaturas') }}
-        </h2>
-    </x-slot>
     <style>
-        body {
-        margin: auto;
-        padding: 50px;
-        }
         input[type=text], select {
         width: 100%;
         padding: 12px 20px;
@@ -31,39 +22,36 @@
         input[type=submit]:hover {
         background-color: #45a049;
         }
-        div {
-        border-radius: 5px;
-        background-color: #f2f2f2;
-        padding: 20px;
+        .create-container {
+            padding: 20px;
         }
     </style>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <a href="/asignaturas">Ver listado de asignatura</a>
-                    <br>
-                    <h2>Nueva asignatura</h2>
-                    <div>
-                        <form action="/asignaturas/crear" method ="POST">
-                            @csrf
-                            <label>Codigo:</label>
-                            <input type="text" name="codAs" placeholder="">
-                            <label>Nombre:</label>
-                            <input type="text" name="nombreAs" placeholder="">
-                            <label>Nombre Corto:</label>
-                            <input type="text" name="nombreCortoAs" placeholder="">
-                            <label>Profesor:</label>
-                            <input type="text" name="profesorAs" placeholder="">
-                            <label for="color">Color:</label>
-                            <input type="color" name="colorAs" id="color">
-                            <input type="submit" value="Guardar">
-                        </form>
-                    </div>
-                    <br>
-                </div>
-            </div>
+    <div class="create-container">
+        <a href="/asignaturas">Ver listado de asignatura</a>
+        <br>
+        <h1>Nueva asignatura</h1>
+        <div>
+            <form action="/asignaturas/crear" method ="POST">
+                @csrf
+                <label>Codigo:</label>
+                <input type="text" name="codAs" placeholder="">
+
+                <label>Nombre:</label>
+                <input type="text" name="nombreAs" placeholder="">
+
+                <label>Nombre Corto:</label>
+                <input type="text" name="nombreCortoAs" placeholder="">
+
+                <label>Profesor:</label>
+                <input type="text" name="profesorAs" placeholder="">
+
+                <label>Color:</label>
+                <input type="color" name="colorAs" id="color">
+
+                <input type="submit" value="Guardar">
+            </form>
         </div>
     </div>
+                 
 </x-app-layout>

@@ -12,7 +12,7 @@ class Asignatura extends Model
     protected $table = "asignaturas";
     protected $primaryKey = ['codAs'];
     protected $fillable = ['codAs', 'user_id', 'nombreAs', 'nombreCortoAs', 'profesorAs', 'colorAs'];
-    // protected $hidden = ['codAs'];
+    protected $keyType = 'String';
     public $incrementing = false;
 
     public function obtenerAsignaturas()
