@@ -30,24 +30,25 @@
     <div class="create-container">
         <a href="/asignaturas">Ver listado de asignaturas</a>
         <br>
-        <h1>Nueva asignatura</h1>
+        <h1>Editar asignatura</h1>
         <div>
-            <form action="/asignaturas/crear" method ="POST">
+            <form action="/asignaturas/editar/{{ $asignatura->codAs }}" method ="POST">
                 @csrf
+                {{ method_field('PUT') }}
                 <label>Codigo:</label>
-                <input type="text" name="codAs" placeholder="">
+                <input type="text" name="codAs" value="{{ $asignatura->codAs }}" placeholder="">
 
                 <label>Nombre:</label>
-                <input type="text" name="nombreAs" placeholder="">
+                <input type="text" name="nombreAs" value="{{ $asignatura->nombreAs }}" placeholder="">
 
                 <label>Nombre Corto:</label>
-                <input type="text" name="nombreCortoAs" placeholder="">
+                <input type="text" name="nombreCortoAs" value="{{ $asignatura->nombreCortoAs }}" placeholder="">
 
                 <label>Profesor:</label>
-                <input type="text" name="profesorAs" placeholder="">
+                <input type="text" name="profesorAs" value="{{ $asignatura->profesorAs }}" placeholder="">
 
                 <label>Color:</label>
-                <input type="color" name="colorAs" id="color">
+                <input type="color" name="colorAs" value="{{ $asignatura->colorAs }}" id="color">
 
                 <input type="submit" value="Guardar">
             </form>

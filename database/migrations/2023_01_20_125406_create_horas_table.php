@@ -24,7 +24,7 @@ return new class extends Migration
                 ->onDelete("cascade")
                 ->onUpdate("cascade");
 
-            $table->primary(['diaH', 'horaH']);
+            $table->primary(['diaH', 'horaH', 'codAs']);
             $table->timestamps();
         });
     }

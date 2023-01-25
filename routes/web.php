@@ -26,9 +26,11 @@ Route::get('/dashboard', function () {
 
 // Asignaturas
 Route::get('/asignaturas', [AsignaturaController::class, 'index'])->middleware(['auth', 'verified'])->name('asignaturas');
-Route::get('/asignaturas/crear', [AsignaturaController::class, 'create'])->middleware(['auth', 'verified'])->name('asignaturas');
-Route::post('/asignaturas/crear',  [AsignaturaController::class, 'store'])->middleware(['auth', 'verified'])->name('asignaturas');
-
+Route::get('/asignaturas/crear', [AsignaturaController::class, 'create'])->middleware(['auth', 'verified'])->name('asignaturas.crear');
+Route::post('/asignaturas/crear',  [AsignaturaController::class, 'store'])->middleware(['auth', 'verified'])->name('asignaturas.store');
+Route::get('/asignaturas/editar/{codAs}', [AsignaturaController::class, 'edit'])->middleware(['auth', 'verified'])->name('asignaturas.editar');
+Route::put('/asignaturas/editar/{codAs}',  [AsignaturaController::class, 'update'])->middleware(['auth', 'verified'])->name('asignaturas.update');
+Route::get('/asignaturas/eliminar/{codAs}',  [AsignaturaController::class, 'destroy'])->middleware(['auth', 'verified'])->name('asignaturas.destroy');
 
 
 Route::get('/horas', function () {

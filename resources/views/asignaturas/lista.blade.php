@@ -45,14 +45,13 @@
                         </tr>
                         @foreach ($asignaturas as $asignatura)
                             <tr>
-                                <td>{{ $asignatura->codAS }}</td>
+                                <td>{{ $asignatura->codAs }}</td>
                                 <td>{{ $asignatura->nombreAs }}</td>
                                 <td>{{ $asignatura->nombreCortoAs }}</td>
                                 <td>{{ $asignatura->profesorAs }}</td>
                                 <td>
-                                    <a href="/asignaturas/ver/{{$asignatura->id}}">Ver</a>
-                                    <a href="/asignaturas/editar/{{$asignatura->id}}">Editar</a>
-                                    <a href="/asignaturas/eliminar/{{$asignatura->id}}">Eliminar</a>
+                                    <a href="/asignaturas/editar/{{$asignatura->codAs}}">Editar</a>
+                                    <a href="/asignaturas/eliminar/{{$asignatura->codAs}}">Eliminar</a>
                                 </td>
                         </tr>
                         @endforeach

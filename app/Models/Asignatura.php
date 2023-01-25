@@ -10,7 +10,7 @@ class Asignatura extends Model
     use HasFactory;
 
     protected $table = "asignaturas";
-    protected $primaryKey = ['codAs'];
+    protected $primaryKey = 'codAs';
     protected $fillable = ['codAs', 'user_id', 'nombreAs', 'nombreCortoAs', 'profesorAs', 'colorAs'];
     protected $keyType = 'String';
     public $incrementing = false;
