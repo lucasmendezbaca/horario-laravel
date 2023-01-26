@@ -33,6 +33,12 @@ class HoraController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'codAs' => 'required',
+            'diaH' => 'required',
+            'horaH' => 'required'
+        ]);
+
         $hora = new Hora(
             [
                 'codAs' => $request->codAs,
@@ -59,13 +65,16 @@ class HoraController extends Controller
 
     public function update(Request $request, $codAs, $diaH, $horaH)
     {
-        $hora = $this->horas->obtenerHora($codAs, $diaH, $horaH);
+        $horaCollection = $this->horas->obtenerHora($codAs, $diaH, $horaH);
+        $hora = $horaCollection;
+        @dump($hora);
+        die;
         
-        $hora[0]->codAs = $request->codAs;
-        $hora[0]->diaH = $request->diaH;
-        $hora[0]->horaH = $request->horaH;
-        $hora[0]->save();
-        return redirect()->action([HoraController::class, 'index']);
+        // $hora->codAs = $request->codAs;
+        // $hora->diaH = $request->diaH;
+        // $hora->horaH = $request->horaH;
+        // $hora->save();
+        // return redirect()->action([HoraController::class, 'index']);
     }
 
     public function destroy($codAs, $diaH, $horaH)

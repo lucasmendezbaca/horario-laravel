@@ -29,7 +29,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div>
-                        <form action="/horas/editar" method ="POST">
+                        <form action="/horas/editar/{codAs}/{diaH}/{horaH}" method ="POST">
                             @csrf
                             {{ method_field('PUT') }}
                             <label for="codAs">Asignatura</label>

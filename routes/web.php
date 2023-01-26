@@ -17,10 +17,7 @@ use App\Http\Controllers\HorarioController;
 |
 */
 
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HorarioController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 // Horario
 Route::get('/dashboard', [HorarioController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
@@ -28,10 +25,10 @@ Route::get('/dashboard', [HorarioController::class, 'index'])->middleware(['auth
 // Asignaturas
 Route::get('/asignaturas', [AsignaturaController::class, 'index'])->middleware(['auth', 'verified'])->name('asignaturas');
 Route::get('/asignaturas/crear', [AsignaturaController::class, 'create'])->middleware(['auth', 'verified'])->name('asignaturas.crear');
-Route::post('/asignaturas/crear',  [AsignaturaController::class, 'store'])->middleware(['auth', 'verified'])->name('asignaturas.store');
+Route::post('/asignaturas/crear', [AsignaturaController::class, 'store'])->middleware(['auth', 'verified'])->name('asignaturas.store');
 Route::get('/asignaturas/editar/{codAs}', [AsignaturaController::class, 'edit'])->middleware(['auth', 'verified'])->name('asignaturas.editar');
-Route::put('/asignaturas/editar/{codAs}',  [AsignaturaController::class, 'update'])->middleware(['auth', 'verified'])->name('asignaturas.update');
-Route::get('/asignaturas/eliminar/{codAs}',  [AsignaturaController::class, 'destroy'])->middleware(['auth', 'verified'])->name('asignaturas.destroy');
+Route::put('/asignaturas/editar/{codAs}', [AsignaturaController::class, 'update'])->middleware(['auth', 'verified'])->name('asignaturas.update');
+Route::get('/asignaturas/eliminar/{codAs}', [AsignaturaController::class, 'destroy'])->middleware(['auth', 'verified'])->name('asignaturas.destroy');
 
 // Horas
 Route::get('/horas', [HoraController::class, 'index'])->middleware(['auth', 'verified'])->name('horas');

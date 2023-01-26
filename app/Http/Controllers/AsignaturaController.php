@@ -29,6 +29,14 @@ class AsignaturaController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'codAs' => 'required',
+            'nombreAs' => 'required',
+            'nombreCortoAs' => 'required',
+            'profesorAs' => 'required',
+            'colorAs' => 'required'
+        ]);
+
         $asignatura = new Asignatura(
             [
                 'codAs' => $request->codAs,
@@ -57,6 +65,14 @@ class AsignaturaController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'codAs' => 'required',
+            'nombreAs' => 'required',
+            'nombreCortoAs' => 'required',
+            'profesorAs' => 'required',
+            'colorAs' => 'required'
+        ]);
+
         $asignatura = Asignatura::find($id);
         $asignatura->fill($request->all());
         $asignatura->save();
