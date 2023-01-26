@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Asignatura extends Model
 {
@@ -17,7 +18,7 @@ class Asignatura extends Model
 
     public function obtenerAsignaturas()
     {
-        return Asignatura::all();
+        return Asignatura::where('user_id', Auth::user()->id)->get();
     }
 
     public function obtenerAsignaturaPorId($id)

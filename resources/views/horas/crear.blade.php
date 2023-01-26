@@ -47,8 +47,6 @@
                     <option value="Miércoles">Miércoles</option>
                     <option value="Jueves">Jueves</option>
                     <option value="Viernes">Viernes</option>
-                    <option value="Sábado">Sábado</option>
-                    <option value="Domingo">Domingo</option>
                 </select>
                 <label for="horaH">Hora</label>
                 <select name="horaH" id="horaH">

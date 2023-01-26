@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AsignaturaController;
 use App\Http\Controllers\HoraController;
+use App\Http\Controllers\HorarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Horario
+Route::get('/dashboard', [HorarioController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 // Asignaturas
 Route::get('/asignaturas', [AsignaturaController::class, 'index'])->middleware(['auth', 'verified'])->name('asignaturas');
@@ -34,12 +34,12 @@ Route::put('/asignaturas/editar/{codAs}',  [AsignaturaController::class, 'update
 Route::get('/asignaturas/eliminar/{codAs}',  [AsignaturaController::class, 'destroy'])->middleware(['auth', 'verified'])->name('asignaturas.destroy');
 
 // Horas
-// Route::get('/horas', function () {
-//     return view('horas');
-// })->middleware(['auth', 'verified'])->name('horas');
 Route::get('/horas', [HoraController::class, 'index'])->middleware(['auth', 'verified'])->name('horas');
-Route::get('/horas/crear', [HoraController::class, 'create'])->middleware(['auth', 'verified'])->name('horas.create');
+Route::get('/horas/crear', [HoraController::class, 'create'])->middleware(['auth', 'verified'])->name('horas.crear');
 Route::post('/horas/crear', [HoraController::class, 'store'])->middleware(['auth', 'verified'])->name('horas.store');
+Route::get("/horas/editar/{codAs}/{diaH}/{horaH}", [HoraController::class, 'edit'])->middleware(['auth', 'verified'])->name('horas.editar');
+Route::put("/horas/editar/{codAs}/{diaH}/{horaH}", [HoraController::class, 'update'])->middleware(['auth', 'verified'])->name('horas.update');
+Route::get('/horas/eliminar/{codAs}/{diaH}/{horaH}',  [HoraController::class, 'destroy'])->middleware(['auth', 'verified'])->name('horas.destroy');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
