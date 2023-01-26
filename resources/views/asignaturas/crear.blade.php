@@ -22,36 +22,35 @@
         input[type=submit]:hover {
         background-color: #45a049;
         }
-        .create-container {
-            padding: 20px;
-        }
     </style>
 
-    <div class="create-container">
-        <a href="/asignaturas">Ver listado de asignaturas</a>
-        <br>
-        <h1>Nueva asignatura</h1>
-        <div>
-            <form action="/asignaturas/crear" method ="POST">
-                @csrf
-                <label>Codigo:</label>
-                <input type="text" name="codAs" placeholder="">
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
+                    <div>
+                        <form action="/asignaturas/crear" method ="POST">
+                            @csrf
+                            <label>Codigo:</label>
+                            <input type="text" name="codAs" placeholder="">
 
-                <label>Nombre:</label>
-                <input type="text" name="nombreAs" placeholder="">
+                            <label>Nombre:</label>
+                            <input type="text" name="nombreAs" placeholder="">
 
-                <label>Nombre Corto:</label>
-                <input type="text" name="nombreCortoAs" placeholder="">
+                            <label>Nombre Corto:</label>
+                            <input type="text" name="nombreCortoAs" placeholder="">
 
-                <label>Profesor:</label>
-                <input type="text" name="profesorAs" placeholder="">
+                            <label>Profesor:</label>
+                            <input type="text" name="profesorAs" placeholder="">
 
-                <label>Color:</label>
-                <input type="color" name="colorAs" id="color">
+                            <label>Color:</label>
+                            <input type="color" name="colorAs" id="color">
 
-                <input type="submit" value="Guardar">
-            </form>
+                            <input type="submit" value="Guardar">
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-                 
 </x-app-layout>

@@ -9,10 +9,12 @@ use App\Models\Asignatura;
 class HorarioController extends Controller
 {
     protected $horas;
+    protected $asignaturas;
 
-    public function __construct(Hora $horas)
+    public function __construct(Hora $horas )
     {
         $this->horas = $horas;
+        $this->asignaturas = new Asignatura();
     }
 
     public function index()
@@ -33,6 +35,6 @@ class HorarioController extends Controller
             6 => '13:45 - 14:45'
         ];
         $horas = $this->horas->obtenerHoras();
-        return view('dashboard', ['horas' => $horas, 'diasSemana' => $diasSemana, 'horasDia' => $horasDia]);
+        return view('dashboard', ['horas' => $horas, 'diasSemana' => $diasSemana, 'horasDia' => $horasDia, 'asignaturas' => $this->asignaturas]);
     }
 }

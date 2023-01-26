@@ -10,16 +10,18 @@ use Illuminate\Support\Facades\DB;
 class HoraController extends Controller
 {
     protected $horas;
+    protected $asignaturas;
 
     public function __construct(Hora $horas)
     {
         $this->horas = $horas;
+        $this->asignaturas = new Asignatura();
     }
 
     public function index()
     {
         $horas = $this->horas->obtenerHoras();
-        return view('horas.lista', ['horas' => $horas]);
+        return view('horas.lista', ['horas' => $horas, 'asignaturas' => $this->asignaturas]);
     }
 
     public function create()
@@ -58,8 +60,6 @@ class HoraController extends Controller
     public function update(Request $request, $codAs, $diaH, $horaH)
     {
         $hora = $this->horas->obtenerHora($codAs, $diaH, $horaH);
-        @dump($hora);
-        die;
         
         $hora[0]->codAs = $request->codAs;
         $hora[0]->diaH = $request->diaH;

@@ -2,6 +2,7 @@
     <style>
         table, td, th {
         border: 1px solid black;
+        padding: 0px;
         }
         table {
         border-collapse: collapse;
@@ -39,23 +40,15 @@
                     <tr>
                         <td>{{ $horasDia[$i] }}</td>
                         @for ($j = 0; $j < 5; $j++)
-                            <td>
+                            <td style="position:relative">
                                 @foreach ($horas as $hora)
                                     @if ($hora->diaH == $diasSemana[$j] && $hora->horaH == $i)
-                                        {{ $hora->codAs }}
+                                        <p style="position:absolute; top:0; width:100%; height:100%; background-color: {{ $asignaturas->obtenerAsignaturaPorId($hora->codAs)->colorAs }}">{{ $asignaturas->obtenerAsignaturaPorId($hora->codAs)->nombreCortoAs }}</p>
                                     @endif
                                 @endforeach
                             </td>
                         @endfor
                     </tr>
-                    <!-- <tr>
-                        <td>08:15 - 09:15</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr> -->
                 @endfor
                 </table>
                 </div>

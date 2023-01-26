@@ -60,7 +60,7 @@
                                         13:45 - 14:45
                                     @endif
                                 </td>
-                                <td>{{ $hora->codAs }}</td>
+                                <td>{{ $asignaturas->obtenerAsignaturaPorId($hora->codAs)->nombreAs }}</td>
                                 <td>
                                     <a href="/horas/editar/{{$hora->codAs}}/{{$hora->diaH}}/{{$hora->horaH}}">Editar</a>
                                     <a href="/horas/eliminar/{{$hora->codAs}}/{{$hora->diaH}}/{{$hora->horaH}}">Eliminar</a>
